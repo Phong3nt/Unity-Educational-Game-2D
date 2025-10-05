@@ -7,6 +7,7 @@ using System.Collections;
 public class QuizManager : MonoBehaviour
 {
     public OperationType currentOperation = OperationType.Addition;
+    private string correctOperator;
 
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI scoreText;
@@ -66,15 +67,15 @@ public class QuizManager : MonoBehaviour
                 break;
 
             // Wait for update (Multiplication, Division, Comparison)
-            case OperationType.Multiplication:
-                // Wait for update
-                break;
+            case OperationType.Comparison:
+                GenerateComparisonQuestion();
+                return;
 
             case OperationType.Division:
                 // Wait for update
                 break;
 
-            case OperationType.Comparison:
+            case OperationType.Multiplication:
                 // Wait for update
                 break;
 
@@ -124,18 +125,25 @@ public class QuizManager : MonoBehaviour
 
     public void AnswerButtonClicked(TextMeshProUGUI buttonText)
     {
-        int answerSubmitted;
-        if (int.TryParse(buttonText.text, out answerSubmitted))
+        SetButtonsInteractable(false); 
+        if (currentOperation == OperationType.Comparison)
         {
-            Debug.Log($"User choose answer: {answerSubmitted}");
-            CheckAnswer(answerSubmitted);
+            CheckComparisonAnswer(buttonText.text);
         }
         else
         {
-            Debug.LogError("Something wrong with this button's number");
+            int answerSubmitted;
+            if (int.TryParse(buttonText.text, out answerSubmitted))
+            {
+                Debug.Log($"User choose answer: {answerSubmitted}");
+                CheckAnswer(answerSubmitted); 
+            }
+            else
+            {
+                Debug.LogError("Undetected answer");
+                SetButtonsInteractable(true); 
+            }
         }
-
-        SetButtonsInteractable(false);
     }
 
     void CheckAnswer(int submittedAnswer)
@@ -171,6 +179,78 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    void GenerateComparisonQuestion()
+    {
+        Debug.Log("Start create Comparison question");
+
+        int num1 = Random.Range(1, 21);
+        int num2 = Random.Range(1, 21);
+
+        if (num1 > num2)
+        {
+            correctOperator = ">";
+        }
+        else if (num1 < num2)
+        {
+            correctOperator = "<";
+        }
+        else
+        {
+            correctOperator = "=";
+        }
+
+        questionText.text = $"{num1} ? {num2}";
+        Debug.Log($"Question: {num1} ? {num2} - Correct Answer: {correctOperator}");
+
+        List<string> operatorAnswers = new List<string> { ">", "<", "=" };
+
+        ShuffleOperators(operatorAnswers);
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+
+            if (i < operatorAnswers.Count)
+            {
+                buttonText.text = operatorAnswers[i];
+                answerButtons[i].interactable = true; 
+                Debug.Log($"Sign answer {operatorAnswers[i]} to button {i + 1}.");
+            }
+            else 
+            {
+                buttonText.text = ""; 
+                answerButtons[i].interactable = false; 
+                Debug.Log("Inactive button 4");
+            }
+        }
+    }
+
+    void ShuffleOperators(List<string> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            string temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+    }
+
+    void CheckComparisonAnswer(string submittedOperator)
+    {
+        if (submittedOperator == correctOperator)
+        {
+            score++;
+            scoreText.text = "Score: " + score;
+            Debug.Log("Correct! ");
+        }
+        else
+        {
+            Debug.Log($"Wrong. Correct Answer: {correctOperator}");
+        }
+
+        StartCoroutine(NextQuestionRoutine());
+    }
 
     void Update()
     {

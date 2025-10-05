@@ -54,11 +54,29 @@ public class QuizManager : MonoBehaviour
                 break;
 
             case OperationType.Subtraction:
-                //wait for update
-                questionText.text = "Subtraction logic is not yet implemented";
+                Debug.Log("Start create subtraction");
+
+                numberA = Random.Range(10, 26);
+                numberB = Random.Range(1, numberA + 1);
+
+                correctAnswer = numberA - numberB;
+                questionText.text = $"{numberA} - {numberB} = ?";
+
+                Debug.Log($"Question: {numberA} - {numberB} = {correctAnswer}");
                 break;
 
             // Wait for update (Multiplication, Division, Comparison)
+            case OperationType.Multiplication:
+                // Wait for update
+                break;
+
+            case OperationType.Division:
+                // Wait for update
+                break;
+
+            case OperationType.Comparison:
+                // Wait for update
+                break;
 
             default:
                 Debug.LogError("Undetected math type or not yet implemented");

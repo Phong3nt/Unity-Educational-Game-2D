@@ -7,6 +7,8 @@ using System.Collections;
 public class QuizManager : MonoBehaviour
 {
     public OperationType currentOperation = OperationType.Addition;
+    public QuestionMode currentMode = QuestionMode.FindResult;
+
     private string correctOperator;
 
     public TextMeshProUGUI questionText;
@@ -41,36 +43,20 @@ public class QuizManager : MonoBehaviour
     {
         Debug.Log($"Start create new question - Type: {currentOperation}");
 
-        int numberA = 0;
-        int numberB = 0;
-        correctAnswer = 0;
-
         switch (currentOperation)
         {
             case OperationType.Addition:
-                numberA = Random.Range(1, 11);
-                numberB = Random.Range(1, 11);
-                correctAnswer = numberA + numberB;
-                questionText.text = $"{numberA} + {numberB} = ?";
-                break;
 
             case OperationType.Subtraction:
                 Debug.Log("Start create subtraction");
 
-                numberA = Random.Range(10, 26);
-                numberB = Random.Range(1, numberA + 1);
-
-                correctAnswer = numberA - numberB;
-                questionText.text = $"{numberA} - {numberB} = ?";
-
-                Debug.Log($"Question: {numberA} - {numberB} = {correctAnswer}");
-                break;
-
-            // Wait for update (Multiplication, Division, Comparison)
+                GenerateBasicMathQuestion();
+                return;
+            
             case OperationType.Comparison:
                 GenerateComparisonQuestion();
                 return;
-
+// Wait for update (Multiplication, Division)
             case OperationType.Division:
                 // Wait for update
                 break;
@@ -111,6 +97,91 @@ public class QuizManager : MonoBehaviour
         }
             Debug.Log("New question generated successfully!");
     }
+
+    void GenerateBasicMathQuestion()
+    {
+        Debug.Log($"Current mode: {currentMode}");
+
+        int numberA = Random.Range(10, 26);
+        int numberB = Random.Range(1, 16);
+        int resultC;
+        string mathOperator = "";
+
+        if (currentOperation == OperationType.Subtraction)
+        {
+            if (numberA < numberB) 
+            {
+                int temp = numberA;
+                numberA = numberB;
+                numberB = temp;
+            }
+            resultC = numberA - numberB;
+            mathOperator = "-";
+        }
+        else 
+        {
+            resultC = numberA + numberB;
+            mathOperator = "+";
+        }
+
+        int missingValuePosition = Random.Range(0, 3); 
+        string questionFormat = "";
+
+        if (currentMode == QuestionMode.FindResult) 
+        {
+            questionFormat = $"{numberA} {mathOperator} {numberB} = ?";
+            this.correctAnswer = resultC;
+        }
+        else 
+        {
+            switch (missingValuePosition)
+            {
+                case 0: 
+                    questionFormat = $"? {mathOperator} {numberB} = {resultC}";
+                    this.correctAnswer = numberA;
+                    break;
+                case 1: 
+                    questionFormat = $"{numberA} {mathOperator} ? = {resultC}";
+                    this.correctAnswer = numberB;
+                    break;
+                case 2: 
+                    questionFormat = $"{numberA} {mathOperator} {numberB} = ?";
+                    this.correctAnswer = resultC;
+                    break;
+            }
+        }
+
+        questionText.text = questionFormat;
+        Debug.Log($"Question generated: {questionFormat} - Correct answer: {this.correctAnswer}");
+
+        List<int> answers = new List<int>();
+        answers.Add(correctAnswer);
+
+        int incorrectAnswerCount = 0;
+        while (incorrectAnswerCount < 3)
+        {
+            int randomOffset = Random.Range(-5, 6);
+            int incorrectAnswer = correctAnswer + randomOffset;
+
+            if (incorrectAnswer > 0 && !answers.Contains(incorrectAnswer))
+            {
+                answers.Add(incorrectAnswer);
+                incorrectAnswerCount++;
+            }
+        }
+
+        Shuffle(answers);
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = answers[i].ToString();
+            Debug.Log($" Answer {answers[i]} in button {i + 1}.");
+        }
+
+        Debug.Log("The question has been generated!");
+    }
+
 
     void Shuffle(List<int> list)
     {
@@ -265,4 +336,10 @@ public enum OperationType
     Multiplication, 
     Division,       
     Comparison      
+}
+
+public enum QuestionMode
+{
+    FindResult,        
+    FillInTheBlank   
 }

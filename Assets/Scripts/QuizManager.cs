@@ -6,6 +6,8 @@ using System.Collections;
 
 public class QuizManager : MonoBehaviour
 {
+    public OperationType currentOperation = OperationType.Addition;
+
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI scoreText;
 
@@ -36,14 +38,34 @@ public class QuizManager : MonoBehaviour
 
     void GenerateNewQuestion()
     {
-        Debug.Log("Start create new question");
+        Debug.Log($"Start create new question - Type: {currentOperation}");
 
-        int numberA = Random.Range(1, 11);
-        int numberB = Random.Range(1, 11);
-        correctAnswer = numberA + numberB; 
+        int numberA = 0;
+        int numberB = 0;
+        correctAnswer = 0;
 
-        questionText.text = $"{numberA} + {numberB} = ?";
-        Debug.Log($"Question: {questionText.text} - Correct Answer: {correctAnswer}");
+        switch (currentOperation)
+        {
+            case OperationType.Addition:
+                numberA = Random.Range(1, 11);
+                numberB = Random.Range(1, 11);
+                correctAnswer = numberA + numberB;
+                questionText.text = $"{numberA} + {numberB} = ?";
+                break;
+
+            case OperationType.Subtraction:
+                //wait for update
+                questionText.text = "Subtraction logic is not yet implemented";
+                break;
+
+            // Wait for update (Multiplication, Division, Comparison)
+
+            default:
+                Debug.LogError("Undetected math type or not yet implemented");
+                return;
+        }
+        Debug.Log("New question: " + questionText.text + " - Answer: " + correctAnswer);
+
         List<int> answers = new List<int>();
         answers.Add(correctAnswer);
 
@@ -136,4 +158,13 @@ public class QuizManager : MonoBehaviour
     {
         //need for future updates(still unchange)
     }
+}
+
+public enum OperationType
+{
+    Addition,       
+    Subtraction,    
+    Multiplication, 
+    Division,       
+    Comparison      
 }

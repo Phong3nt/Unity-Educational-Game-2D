@@ -666,6 +666,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerButton_3
       objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842103938}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnswerButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1842649990}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
       propertyPath: m_text
       value: 7
@@ -780,6 +812,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerButton_4
       objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842103938}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnswerButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1698825335}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
       propertyPath: m_fontSize
       value: 72
@@ -798,6 +862,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1990150953714517799, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
   m_PrefabInstance: {fileID: 574397709}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &595425062 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 1923963507}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &768508609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 441127066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1296746648
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,8 +923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000030041, y: 441.62}
-  m_SizeDelta: {x: 1920, y: 883.23}
+  m_AnchoredPosition: {x: 0.000030041, y: 460.4829}
+  m_SizeDelta: {x: 1920, y: 920.9658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296746650
 MonoBehaviour:
@@ -966,7 +1052,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1041,6 +1127,28 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1698825335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 574397709}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1833003538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 2802478595684666527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1842103937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1180,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
   questionText: {fileID: 396788559}
   scoreText: {fileID: 198762699}
+  answerButtons:
+  - {fileID: 2802478595684666530}
+  - {fileID: 1923963510}
+  - {fileID: 768508609}
+  - {fileID: 1979286248}
   questions: []
 --- !u!4 &1842103939
 Transform:
@@ -1088,6 +1201,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1842649990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 441127066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1923963507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1180,6 +1304,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerButton_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842103938}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnswerButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 595425062}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
       propertyPath: m_text
       value: 6
@@ -1202,6 +1358,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1990150953714517799, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
   m_PrefabInstance: {fileID: 1923963507}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1923963510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 1923963507}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1979286248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 574397709}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &2802478595684666527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1294,6 +1472,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerButton_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842103938}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnswerButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuizManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1833003538}
+    - target: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 7983997187787389182, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
       propertyPath: m_text
       value: 9
@@ -1316,6 +1526,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1990150953714517799, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
   m_PrefabInstance: {fileID: 2802478595684666527}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2802478595684666530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6696913920750885763, guid: f7dd4763ab7564a4582b95d2453ee3e7, type: 3}
+  m_PrefabInstance: {fileID: 2802478595684666527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

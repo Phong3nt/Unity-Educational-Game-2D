@@ -82,6 +82,55 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    public void AnswerButtonClicked(TextMeshProUGUI buttonText)
+    {
+        int answerSubmitted;
+        if (int.TryParse(buttonText.text, out answerSubmitted))
+        {
+            Debug.Log($"User choose answer: {answerSubmitted}");
+            CheckAnswer(answerSubmitted);
+        }
+        else
+        {
+            Debug.LogError("Something wrong with this button's number");
+        }
+
+        SetButtonsInteractable(false);
+    }
+
+    void CheckAnswer(int submittedAnswer)
+    {
+        if (submittedAnswer == correctAnswer)
+        {
+            score++;
+            scoreText.text = "Score: " + score;
+            Debug.Log("Correct! Your score: " + score);
+        }
+        else
+        {
+            // (wait for update)
+            Debug.Log($"Wrong! Answer: {correctAnswer}");
+        }
+
+        StartCoroutine(NextQuestionRoutine());
+    }
+
+    IEnumerator NextQuestionRoutine()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SetButtonsInteractable(true);
+        GenerateNewQuestion();
+    }
+
+    void SetButtonsInteractable(bool isInteractable)
+    {
+        foreach (Button button in answerButtons)
+        {
+            button.interactable = isInteractable;
+        }
+    }
+
 
     void Update()
     {

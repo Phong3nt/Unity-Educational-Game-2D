@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI; 
-using System.Collections.Generic; 
-
+using System.Collections.Generic;
+using System.Collections;
 
 public class QuizManager : MonoBehaviour
 {
@@ -21,18 +21,29 @@ public class QuizManager : MonoBehaviour
         Debug.Log("QuizManager is ready!");
         score = 0;
         scoreText.text = "Score: " + score;
+        StartCoroutine(StartGameRoutine());
+        GenerateNewQuestion();
+    }
+
+    IEnumerator StartGameRoutine()
+    {
+        yield return null;
 
         GenerateNewQuestion();
+
+        Debug.Log(" StartGameRoutine run, success create first question!");
     }
 
     void GenerateNewQuestion()
     {
+        Debug.Log("Start create new question");
+
         int numberA = Random.Range(1, 11);
         int numberB = Random.Range(1, 11);
         correctAnswer = numberA + numberB; 
 
         questionText.text = $"{numberA} + {numberB} = ?";
-
+        Debug.Log($"Question: {questionText.text} - Correct Answer: {correctAnswer}");
         List<int> answers = new List<int>();
         answers.Add(correctAnswer);
 
@@ -55,7 +66,9 @@ public class QuizManager : MonoBehaviour
         {
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = answers[i].ToString();
+            Debug.Log($" Answer {answers[i]} in button {i + 1}.");
         }
+            Debug.Log("New question generated successfully!");
     }
 
     void Shuffle(List<int> list)

@@ -41,102 +41,91 @@ public class QuizManager : MonoBehaviour
 
     void GenerateNewQuestion()
     {
-        Debug.Log($"Start create new question - Type: {currentOperation}");
+        Debug.Log($" Start create new question - Type: {currentOperation}");
 
         switch (currentOperation)
         {
             case OperationType.Addition:
-
             case OperationType.Subtraction:
-                Debug.Log("Start create subtraction");
-
+            case OperationType.Multiplication:
+            case OperationType.Division:
                 GenerateBasicMathQuestion();
-                return;
-            
+                return; 
+
             case OperationType.Comparison:
                 GenerateComparisonQuestion();
                 return;
-// Wait for update (Multiplication, Division)
-            case OperationType.Division:
-                // Wait for update
-                break;
-
-            case OperationType.Multiplication:
-                // Wait for update
-                break;
 
             default:
-                Debug.LogError("Undetected math type or not yet implemented");
+                Debug.LogError(" Undetected math type or not yet implemented.");
                 return;
         }
-        Debug.Log("New question: " + questionText.text + " - Answer: " + correctAnswer);
-
-        List<int> answers = new List<int>();
-        answers.Add(correctAnswer);
-
-        int incorrectAnswerCount = 0;
-        while (incorrectAnswerCount < 3)
-        {
-            int randomOffset = Random.Range(-5, 6);
-            int incorrectAnswer = correctAnswer + randomOffset;
-
-            if (incorrectAnswer > 0 && !answers.Contains(incorrectAnswer))
-            {
-                answers.Add(incorrectAnswer);
-                incorrectAnswerCount++;
-            }
-        }
-
-        Shuffle(answers);
-
-        for (int i = 0; i < answerButtons.Length; i++)
-        {
-            TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = answers[i].ToString();
-            Debug.Log($" Answer {answers[i]} in button {i + 1}.");
-        }
-            Debug.Log("New question generated successfully!");
     }
 
     void GenerateBasicMathQuestion()
     {
-        Debug.Log($"Current mode: {currentMode}");
+        Debug.Log($" Current mode: {currentMode}");
 
-        int numberA = Random.Range(10, 26);
-        int numberB = Random.Range(1, 16);
-        int resultC;
+        int numberA = 0;
+        int numberB = 0;
+        int resultC = 0;
         string mathOperator = "";
 
-        if (currentOperation == OperationType.Subtraction)
+        switch (currentOperation)
         {
-            if (numberA < numberB) 
-            {
-                int temp = numberA;
-                numberA = numberB;
-                numberB = temp;
-            }
-            resultC = numberA - numberB;
-            mathOperator = "-";
-        }
-        else 
-        {
-            resultC = numberA + numberB;
-            mathOperator = "+";
+            case OperationType.Addition:
+                numberA = Random.Range(10, 26);
+                numberB = Random.Range(1, 16);
+                resultC = numberA + numberB;
+                mathOperator = "+";
+                break;
+
+            case OperationType.Subtraction:
+                numberA = Random.Range(10, 26);
+                numberB = Random.Range(1, 16);
+                if (numberA < numberB) 
+                {
+                    int temp = numberA;
+                    numberA = numberB;
+                    numberB = temp;
+                }
+                resultC = numberA - numberB;
+                mathOperator = "-";
+                break;
+
+            case OperationType.Multiplication:
+                numberA = Random.Range(2, 11); 
+                numberB = Random.Range(2, 11);
+                resultC = numberA * numberB;
+                mathOperator = "x";
+                Debug.Log($"Multiplication: {numberA} x {numberB} = {resultC}");
+                break;
+
+            case OperationType.Division:
+                int divisor = Random.Range(2, 11);  
+                int quotient = Random.Range(2, 11);
+                numberA = divisor * quotient;       
+                numberB = divisor;                 
+                resultC = quotient;                 
+                mathOperator = "/";
+                Debug.Log($" Division: {numberA} / {numberB} = {resultC}");
+                break;
         }
 
-        int missingValuePosition = Random.Range(0, 3); 
+        int missingValuePosition = Random.Range(0, 3);
         string questionFormat = "";
 
         if (currentMode == QuestionMode.FindResult) 
         {
             questionFormat = $"{numberA} {mathOperator} {numberB} = ?";
             this.correctAnswer = resultC;
+            Debug.Log(" Mode: Find Result.");
         }
-        else 
+        else
         {
             switch (missingValuePosition)
             {
-                case 0: 
+                case 0:
                     questionFormat = $"? {mathOperator} {numberB} = {resultC}";
                     this.correctAnswer = numberA;
                     break;
@@ -149,10 +138,11 @@ public class QuizManager : MonoBehaviour
                     this.correctAnswer = resultC;
                     break;
             }
+            Debug.Log(" Mode: Fill In The Blank.");
         }
 
         questionText.text = questionFormat;
-        Debug.Log($"Question generated: {questionFormat} - Correct answer: {this.correctAnswer}");
+        Debug.Log($" Question generated: {questionFormat} - Correct answer: {this.correctAnswer}");
 
         List<int> answers = new List<int>();
         answers.Add(correctAnswer);
@@ -161,6 +151,8 @@ public class QuizManager : MonoBehaviour
         while (incorrectAnswerCount < 3)
         {
             int randomOffset = Random.Range(-5, 6);
+            if (correctAnswer > 20) randomOffset = Random.Range(-10, 11);
+
             int incorrectAnswer = correctAnswer + randomOffset;
 
             if (incorrectAnswer > 0 && !answers.Contains(incorrectAnswer))
@@ -170,16 +162,19 @@ public class QuizManager : MonoBehaviour
             }
         }
 
-        Shuffle(answers);
+        Shuffle(answers); 
 
         for (int i = 0; i < answerButtons.Length; i++)
         {
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+
+            answerButtons[i].interactable = true;
+
             buttonText.text = answers[i].ToString();
             Debug.Log($" Answer {answers[i]} in button {i + 1}.");
         }
 
-        Debug.Log("The question has been generated!");
+        Debug.Log(" Basic math question generated successfully!");
     }
 
 
